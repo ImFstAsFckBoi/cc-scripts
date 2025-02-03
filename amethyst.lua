@@ -45,20 +45,20 @@ function try_harvest()
     end
     
     if front or up or down or left or right then
-        return true
+        return
     end
     
-    print("Not ready")
-    return false
+    print("Nothing ready")
 end
 
 
 function main ()
     while true do
-
-        if try_harvest() then
+        try_harvest()
+        
+        turtle.select(2)
+        if turtle.getItemCount() > 0 then
             print("Dropping...")
-            turtle.select(2)
             turtle.turnLeft()
             turtle.turnLeft()
             turtle.drop(turtle.getItemCount())
