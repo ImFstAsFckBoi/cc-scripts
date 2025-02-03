@@ -44,11 +44,11 @@ function try_harvest()
         turtle.turnLeft()
     end
     
-    if not front and not up and not down and not left and not right then
-        print("Not ready")
+    if front or up or down or left or right then
         return true
     end
     
+    print("Not ready")
     return false
 end
 
