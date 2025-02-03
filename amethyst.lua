@@ -1,26 +1,68 @@
 
+
+
+function try_harvest()
+    turtle.select(1)
+    print("Checking growth stage...")
+
+    front = turtle.compare()
+    up = turtle.compareUp()
+    down = turtle.compareDown()
+    left = turtle.compareLeft()
+    right = turtle.compareRight()
+
+    if front then
+        print("Ready front! Harvesting...")
+        turtle.dig()
+    end
+
+    if up then
+        print("Ready up! Harvesting...")
+        turtle.digUp()
+    end
+
+    if down then
+        print("Ready down! Harvesting...")
+        turtle.digDown()
+    end
+
+    if left then
+        print("Ready left! Harvesting...")
+        turtle.digLeft()
+    end
+
+    if right then
+        print("Ready right! Harvesting...")
+        turtle.digRight()
+    end
+    
+    if not front and not up and not down and not left and not right then
+        print("Not ready")
+        return true
+    end
+    
+    return false
+end
+
+
 function main ()
     while true do
-        turtle.select(1)
-        turtle.compare()
-        print("Checking growth stage...")
-        if turtle.compare() then
-            print("Ready! Harvesting...")
-            turtle.dig()
-            turtle.select(2)
+
+        if try_harvest() then
             print("Dropping...")
+            turtle.select(2)
             turtle.turnLeft()
             turtle.turnLeft()
             turtle.drop(64)
             turtle.turnRight()
             turtle.turnRight()
             print("Done!")
-        else
-            print("Not ready")
         end
+
         print("Waiting for 60 seconds...")
         sleep(60)
     end
 end
+
 
 main()
