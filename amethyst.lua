@@ -8,8 +8,12 @@ function try_harvest()
     front = turtle.compare()
     up = turtle.compareUp()
     down = turtle.compareDown()
+    turtle.turnLeft()
     left = turtle.compareLeft()
+    turtle.turnRight()
+    turtle.turnRight()
     right = turtle.compareRight()
+    turtle.turnLeft()
 
     if front then
         print("Ready front! Harvesting...")
@@ -28,12 +32,16 @@ function try_harvest()
 
     if left then
         print("Ready left! Harvesting...")
-        turtle.digLeft()
+        turtle.turnLeft()
+        turtle.dig()
+        turtle.turnRight()
     end
 
     if right then
         print("Ready right! Harvesting...")
-        turtle.digRight()
+        turtle.turnRight()
+        turtle.dig()
+        turtle.turnLeft()
     end
     
     if not front and not up and not down and not left and not right then
