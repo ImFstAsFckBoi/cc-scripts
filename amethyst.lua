@@ -9,10 +9,10 @@ function try_harvest()
     up = turtle.compareUp()
     down = turtle.compareDown()
     turtle.turnLeft()
-    left = turtle.compareLeft()
+    left = turtle.compare()
     turtle.turnRight()
     turtle.turnRight()
-    right = turtle.compareRight()
+    right = turtle.compare()
     turtle.turnLeft()
 
     if front then
